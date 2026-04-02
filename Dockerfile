@@ -20,4 +20,5 @@ RUN npm run build
 EXPOSE 3000
 
 # Start your Node.js server (assuming it serves the React app)  
-CMD ["npm", "start"]
+# CMD ["npm", "start"]
+CMD ["npx", "serve", "-s", "build", "-l", "3000", "--host", "0.0.0.0"]
