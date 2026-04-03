@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: zomato
-        image: mukulshukla030503/zomato-app:latest
+        image: mukulshukla030503/zomato-app:PLACEHOLDER
         ports:
         - containerPort: 3000
