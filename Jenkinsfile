@@ -70,7 +70,7 @@ pipeline {
             }
         }
 
-        stage('Push Image to DockerHub') {
+        stage('Push Image to Dockerhub') {
             steps {
                 sh 'docker push $IMAGE_NAME:$BUILD_NUMBER'
             }
