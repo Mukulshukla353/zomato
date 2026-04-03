@@ -93,4 +93,41 @@ pipeline {
             }
         }
     }
+
+    post {
+        success {
+            emailext(
+                subject: "SUCCESS: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                body: """
+                Build Successful
+
+                Job Name: ${env.JOB_NAME}
+                Build Number: ${env.BUILD_NUMBER}
+                Docker Image: ${IMAGE_NAME}:${BUILD_NUMBER}
+
+                ${env.BUILD_URL}
+                """,
+                to: "mukulshukla030503@gmail.com"
+            )
+        }
+
+        failure {
+            emailext(
+                subject: "FAILURE: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                body: """
+                Build Failed
+
+                Job Name: ${env.JOB_NAME}
+                Build Number: ${env.BUILD_NUMBER}
+
+                ${env.BUILD_URL}
+                """,
+                to: "mukulshukla030503@gmail.com"
+            )
+        }
+    }
+}
+            }
+        }
+    }
 }
